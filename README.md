@@ -14,6 +14,18 @@ cp .env.example .env
 
 Fill in `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHANNEL_ID` (either `@channelname` or a numeric ID).
 
+If you're not sure how to get your channel ID, send any message to your channel, then go to: https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates
+
+Look for
+
+```json
+"chat": {
+  "id": -1001234567890,
+  "title": "Your Channel Name",
+  "type": "channel"
+}
+```
+
 4. Install dependencies:
 
 ```bash
