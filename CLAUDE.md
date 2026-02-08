@@ -47,20 +47,18 @@ Implementing a feature? Read plans/guides/feature.md
 
 13. The tests for the feature should be located in the feature folder next to the source code.
 
-14. Look at example-structure/ folder structure (if not empty) to see how to lay the project out. Otherwise, use consistent patterns to keep the project structure clean and maintainable.
+14. Keep AGENTS.md up to date with information on how to build, run or test the project and your learnings to optimise the build/test loop using a subagent.
 
-15. Keep AGENTS.md up to date with information on how to build, run or test the project and your learnings to optimise the build/test loop using a subagent.
+15. For any bugs you notice it is important to resolve or document them in fix_plan.md to be resolved using a subagent.
 
-16. For any bugs you notice it is important to resolve or document them in fix_plan.md to be resolved using a subagent.
+16. When the fix_plan.md becomes large periodically clean out the items that are completed from the file using a subagent.
 
-17. When the fix_plan.md becomes large periodically clean out the items that are completed from the file using a subagent.
+17. DO NOT IMPLEMENT PLACEHOLDER OR SIMPLE IMPLEMENTATIONS. WE WANT FULL IMPLEMENTATIONS. DO IT OR I WILL YELL AT YOU
 
-18. DO NOT IMPLEMENT PLACEHOLDER OR SIMPLE IMPLEMENTATIONS. WE WANT FULL IMPLEMENTATIONS. DO IT OR I WILL YELL AT YOU
+18. If you find inconsistencies in the plans/plan.md, use a subagent to update the specs.
 
-19. If you find inconsistencies in the plans/plan.md, use a subagent to update the specs.
+19. If you ever need human intervention to complete a task, use a subagent to add concise requirements to human_tasks.md. Include a datetime.
 
-20. If you ever need human intervention to complete a task, use a subagent to add concise requirements to human_tasks.md. Include a datetime.
+20. Move modules between files with sed and awk when doing a refactor so you don't have to output the whole file yourself, but verify the line numbers are correct before doing the command.
 
-21. Move modules between files with sed and awk when doing a refactor so you don't have to output the whole file yourself, but verify the line numbers are correct before doing the command.
-
-22. SUPER IMPORTANT DO NOT IGNORE. DO NOT PLACE STATUS REPORT UPDATES INTO @AGENTS.md
+21. SUPER IMPORTANT DO NOT IGNORE. DO NOT PLACE STATUS REPORT UPDATES INTO @AGENTS.md
