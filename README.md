@@ -1,6 +1,8 @@
 # Telebot
 
-Send messages to a Telegram channel from the command line using the [Telegram Bot API](https://core.telegram.org/bots/api). No Telegram account required — just a bot token.
+Send messages to a Telegram channel from the command line using the [Telegram Bot API](https://core.telegram.org/bots/api).
+
+While this script does not require an account to send messages, you will need a telegram account to set up a bot and a channel.
 
 ## Setup
 
@@ -12,7 +14,7 @@ Send messages to a Telegram channel from the command line using the [Telegram Bo
 cp .env.example .env
 ```
 
-Fill in `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHANNEL_ID` (either `@channelname` or a numeric ID).
+Fill in `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHANNEL_ID` (either `@channelname` or a numeric ID). If numeric id, include the hyphen as required.
 
 If you're not sure how to get your channel ID, send any message to your channel, then go to: `https://api.telegram.org/bot<YOUR_BOT_TOKEN>/getUpdates`
 
