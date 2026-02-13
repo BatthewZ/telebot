@@ -66,6 +66,8 @@ telebot -p html '<b>Bold</b> message'
 echo "piped message" | telebot
 ```
 
+**Note:** You'll have to add `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHANNEL_ID` to your local project's .env
+
 ## Usage Notes
 
 ### Shell quoting
@@ -84,17 +86,17 @@ telebot "<b>Hello!</b>"
 
 Telegram only supports a subset of HTML tags:
 
-| Tag | Effect |
-| --- | --- |
-| `<b>`, `<strong>` | bold |
-| `<i>`, `<em>` | italic |
-| `<u>`, `<ins>` | underline |
+| Tag                        | Effect        |
+| -------------------------- | ------------- |
+| `<b>`, `<strong>`          | bold          |
+| `<i>`, `<em>`              | italic        |
+| `<u>`, `<ins>`             | underline     |
 | `<s>`, `<strike>`, `<del>` | strikethrough |
-| `<code>` | inline code |
-| `<pre>` | code block |
-| `<a href="...">` | link |
-| `<blockquote>` | block quote |
-| `<tg-spoiler>` | spoiler |
+| `<code>`                   | inline code   |
+| `<pre>`                    | code block    |
+| `<a href="...">`           | link          |
+| `<blockquote>`             | block quote   |
+| `<tg-spoiler>`             | spoiler       |
 
 Standard tags like `<h1>`, `<p>`, `<div>`, etc. are **not supported** and will cause an error.
 
