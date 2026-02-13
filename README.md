@@ -50,6 +50,74 @@ bun run src/index.ts -p html "<b>Bold</b> <i>italic</i>"
 echo "Hello from pipe" | bun run src/index.ts
 ```
 
+### Global CLI install
+
+To use `telebot` as a global command:
+
+```bash
+bun link
+```
+
+Then you can run:
+
+```bash
+telebot "Hello, channel!"
+telebot -p html '<b>Bold</b> message'
+echo "piped message" | telebot
+```
+
+## Usage Notes
+
+### Shell quoting
+
+Use **single quotes** for messages containing `!`, `$`, or backticks — double quotes in bash will interpret these as special characters:
+
+```bash
+# Good
+telebot '<b>Hello!</b>'
+
+# Bad — bash will error on "!"
+telebot "<b>Hello!</b>"
+```
+
+### HTML mode
+
+Telegram only supports a subset of HTML tags:
+
+| Tag | Effect |
+| --- | --- |
+| `<b>`, `<strong>` | bold |
+| `<i>`, `<em>` | italic |
+| `<u>`, `<ins>` | underline |
+| `<s>`, `<strike>`, `<del>` | strikethrough |
+| `<code>` | inline code |
+| `<pre>` | code block |
+| `<a href="...">` | link |
+| `<blockquote>` | block quote |
+| `<tg-spoiler>` | spoiler |
+
+Standard tags like `<h1>`, `<p>`, `<div>`, etc. are **not supported** and will cause an error.
+
+### Markdown mode (MarkdownV2)
+
+Telegram uses its own MarkdownV2 syntax, not standard Markdown. Supported formatting:
+
+- `*bold*`, `_italic_`, `__underline__`, `~strikethrough~`
+- `||spoiler||`, `` `inline code` ``, ` ```code block``` `
+- `[link text](url)`, `>blockquote`
+
+Headings, lists, tables, and images are **not supported**.
+
+Special characters must be escaped with `\` when not part of formatting:
+
+```
+_ * [ ] ( ) ~ ` > # + - = | { } . !
+```
+
+For example, `3.5 + 2 = 5.5!` must be sent as `3\.5 \+ 2 \= 5\.5\!`.
+
+For casual use, HTML mode is generally easier since plain text doesn't need escaping.
+
 ## Testing
 
 ```bash

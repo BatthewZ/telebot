@@ -1,3 +1,4 @@
+#!/usr/bin/env bun
 import { loadEnv } from "./config/env.ts";
 import { TelegramClient } from "./telegram/client.ts";
 import type { ParseMode } from "./telegram/types.ts";
@@ -26,7 +27,9 @@ async function main(): Promise<void> {
       } else if (mode === "html") {
         parseMode = "HTML";
       } else {
-        console.error(`Unknown parse mode: "${mode}". Use "markdown" or "html".`);
+        console.error(
+          `Unknown parse mode: "${mode}". Use "markdown" or "html".`,
+        );
         process.exit(1);
       }
     } else if (args[i] === "--help" || args[i] === "-h") {
@@ -57,12 +60,13 @@ async function main(): Promise<void> {
 
   const result = await client.sendMessage(env.channelId, message, parseMode);
   console.log(
-    `Message sent to ${result.chat.title ?? result.chat.username ?? env.channelId} (message_id: ${result.message_id})`
+    `Message sent to ${result.chat.title ?? result.chat.username ?? env.channelId} (message_id: ${result.message_id})`,
   );
 }
 
 function printUsage(): void {
-  console.log(`
+  console.log(
+    `
 Usage: bun run src/index.ts [options] <message>
 
 Options:
@@ -73,7 +77,8 @@ Examples:
   bun run src/index.ts "Hello, channel!"
   bun run src/index.ts -p markdown "**Bold** message"
   echo "Hello" | bun run src/index.ts
-  `.trim());
+  `.trim(),
+  );
 }
 
 main().catch((err: Error) => {
